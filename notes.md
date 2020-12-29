@@ -1,13 +1,10 @@
 ### Dudas 
-Wayland - Xorg? Solución a pantalla negra en screen share?.
 C++ row major
 Initializers to avoid narrowing
-
-Moverme por directorios
-Copiar, Renombrar, mover y eliminar archivos y carpetas
-Instalar y desinstalar programas - practicar con filezilla - pacman y yay
-systemctl
-Cerrar el compu
-Compilar
-Usar Git
+Using the IDE without the mouse
+Data structures and algorithms applied to C++
+Desbaratar el casio chiquito
+Celular viejo de Dario
+Tenemos ese compaq viejo en casa?
+Hacer unos breves ejercicios de git, y git flow
 

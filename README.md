@@ -14,16 +14,31 @@ Ej: Hay 4 3 en la mesa. Esto quiere decir que el jugador esta suponiendo que hay
 
 Si el siguiente jugador  cree que la suposicion podria ser verdad debe hacerle una suposicion al jugador siguiente aumentado minimo por 1 la cantidad de dados o el valor y esto dara por terminado el turno actual. De no creer en esa suposicion actual el jugador debe decir *cacho* y se hacen visibles todos los dados en juego y el jugador que esta equivocado pierde un dado. Esto hara que comience una nueva ronda.
 
-El valor **1** es un comodín. Esto quiere decir que un dado que tenga el valor **1** toma el valor de la suposicion. 
 
+<!-- corrección sección comodínes -->
+**Comodín**
 
-<!-- corregir estos dos parrafos -->
-* Comodín a numeros:
+El valor **1** es un comodín. Esto quiere decir que un dado que tenga el valor **1** toma el valor de la suposicion. En ocasiones nos conviene cambiar la suposicion de un valor regular(2,3,4,5,6) a comodines por nuestros dados. Para realizar esto debemos tener en cuenta:
+
+* Convertir de Comodín a numeros:
+
     *Se multiplica la cantidad de comodines *2 de la suposicion + 1.*
 
+    Ej: CPU3 4 1
+        HUM  9 5
+    
+    En este caso el Humano multiplicó la cantidad dada por CPU3 por 2 y le sumó 1((4 * 2) + 1 = 9). Luego le asigno el valor de 5. Este valor puede ser cualquier valor regular(2,3,4,5,6).
+
 * Numeros a comodin:
+
     *Se divide la cantidad de comodines /2 de la suposicion + 1.*
 
+    Ej: CPU2 6 3
+        HUM  4 1
+
+    En este caso el Humano dividió la cantidad dada por CPU2 en 2 y le sumó 1((6 / 2) + 1 = 4). Luego le asigno el valor de 1, que es el valor de comodín.  
+
+*nota: En caso tal que la cantidad no sea divisible por 2 en numeros enteros, se redondea hacia arriba(ceil).*
 
 ## Flujo e interfaz
 
@@ -60,17 +75,43 @@ El valor **1** es un comodín. Esto quiere decir que un dado que tenga el valor 
        Se lanzan los dados nuevamente.
     
 
-5. Regresar al paso #2 hasta que Humano pierda sus 5 dados o eventualmente gane, cerrar el programa.
+5. Regresar al paso #2 hasta que Humano pierda sus 5 dados o gane, cerrar el programa.
 
 ## Pseudocódigo
 
-<!-- Siga con el main, llamar las funciones, todavia no ir a escribir las funciones, despues de que me de cuenta de como tienen que ser ahi si las escribo  -->
+<!-- Siga con el main para llamar las funciones, todavia no ir a escribir las funciones, despues de que me de cuenta de como tienen que ser ahi si las escribo  -->
 
 
 int main () {
      imprimirMsjInicio();
+     contadorDados();
      generarValoresDados();
+
+     
+
+     controlarTurnos();
+        leerSuposicion();
+        generarSuposicion();
+
+     revisarCacho();
+
+     nuevaRonda();
+     
+     Ejecutar hasta que Humano pierda.
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void imprimirMsjInicio (numOponentes) {
     std::string msj = "Estas jugando cacho con  numOponentes CPU tus dados son:";
@@ -130,6 +171,12 @@ pasado cierto valor siempre decir cacho
 irse por un valor o ir cambiando por diferentes valores
 
 
+<!-- Code formatter
+Post del mouse
+Verbos
+Funciones brutas, puras
+Variables globales
+Anecdota -->
 
 
 
